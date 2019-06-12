@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/maugares/graphql-playlist-server/issues"
   },
-  "homepage": "https://github.com/maugares/graphql-playlist-server#readme"
+  "homepage": "https://github.com/maugares/graphql-playlist-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
