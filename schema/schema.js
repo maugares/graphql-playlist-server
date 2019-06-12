@@ -2,12 +2,19 @@ const graphql = require('graphql');
 
 const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLSchema } = graphql;
 
+// Dummy data
+const books = [
+  { name: 'Name of the Wind', genre: 'Fantasy', id: 1 },
+  { name: 'The Final Empire', genre: 'Fantasy', id: 2},
+  { name: 'The Long Earth', genre: 'Sci-Fi', id: 3},
+]
+
 // Define Book Type
 const BookType = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
     id: { type: GraphQLInt },
-    author: { type: GraphQLString },
+    name: { type: GraphQLString },
     genre: { type: GraphQLString }
   })
 });
