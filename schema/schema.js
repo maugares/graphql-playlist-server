@@ -5,9 +5,9 @@ const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLSchema } = graphql;
 // Dummy data
 const books = [
   { name: 'Name of the Wind', genre: 'Fantasy', id: 1 },
-  { name: 'The Final Empire', genre: 'Fantasy', id: 2},
-  { name: 'The Long Earth', genre: 'Sci-Fi', id: 3},
-]
+  { name: 'The Final Empire', genre: 'Fantasy', id: 2 },
+  { name: 'The Long Earth', genre: 'Sci-Fi', id: 3 },
+];
 
 // Define Book Type
 const BookType = new GraphQLObjectType({
@@ -28,6 +28,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLInt } },
       resolve(parent, args) {
         // Code to get data from db / other source
+        _.find(books, { id: args.id });
       }
     }
   }
