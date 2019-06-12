@@ -1,11 +1,12 @@
 const graphql = require('graphql');
 
-const { GraphQLObjectType, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLInt, GraphQLString } = graphql;
 
 const BookType = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
-    id: { type: int},
-    author: 
+    id: { type: GraphQLInt },
+    author: { type: GraphQLString},
+    genre: { type: GraphQLString }
   })
 })
