@@ -1,4 +1,5 @@
 const graphql = require('graphql');
+const _ = require('lodash') // Allows to search in arrays, objects and strings
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 
