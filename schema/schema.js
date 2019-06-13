@@ -28,7 +28,14 @@ const BookType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    genre: { type: GraphQLString }
+    genre: { type: GraphQLString },
+    author: {
+      type: AuthorType,
+      resolve(parent, args) {
+        // return authors.find(author => author.id === parent.authorId)
+        return _.find(authors, { id: parent.id })
+      }
+    }
   })
 });
 
