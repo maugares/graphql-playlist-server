@@ -50,7 +50,7 @@ const RootQuery = new GraphQLObjectType({
       type: BookType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        // Code to get data from db / other source
+        // Using lodash
         return _.find(books, { id: args.id });
       }
     },
@@ -58,7 +58,8 @@ const RootQuery = new GraphQLObjectType({
       type: AuthorType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return _.find(authors, {id: args.id});
+        // Using normal array.find()
+        return authors.find(author => author.id === args.id);
       }
     }
   }
