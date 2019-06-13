@@ -6,7 +6,8 @@ const {
   GraphQLID,
   GraphQLString,
   GraphQLInt,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLList
 } = graphql;
 
 // Dummy data
@@ -42,13 +43,19 @@ const BookType = new GraphQLObjectType({
   })
 });
 
-// Define Authro Type
+// Define Author Type
 const AuthorType = new GraphQLObjectType({
   name: 'Author',
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    age: { type: GraphQLInt }
+    age: { type: GraphQLInt },
+    books: {
+      type: new GraphQLList(BookType),
+      resolve(parent, args) {
+        return books.filter(book => book.authorId === parent.id)
+      }
+    }
   })
 });
 
