@@ -3,6 +3,7 @@ import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLSchema,
+  GraphQLList,
 } from 'graphql';
 import _ from 'lodash'; // Allows to search in arrays, objects and strings
 
@@ -31,6 +32,12 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         // Using normal array.find()
         return authors.find(author => author.id === args.id);
+      }
+    },
+    books: {
+      type: new GraphQLList(BookType),
+      resolve(parent, args) {
+        return books;
       }
     }
   }
