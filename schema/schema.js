@@ -1,14 +1,13 @@
-const graphql = require('graphql');
-const _ = require('lodash') // Allows to search in arrays, objects and strings
-
-const {
+import {
   GraphQLObjectType,
   GraphQLID,
   GraphQLString,
   GraphQLInt,
   GraphQLSchema,
   GraphQLList
-} = graphql;
+} from 'graphql';
+import _ from 'lodash'; // Allows to search in arrays, objects and strings
+
 
 // Dummy data
 var books = [
@@ -82,6 +81,6 @@ const RootQuery = new GraphQLObjectType({
   }
 });
 
-module.exports = new GraphQLSchema({
+export default new GraphQLSchema({
   query: RootQuery
 });
