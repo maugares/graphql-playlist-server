@@ -20,7 +20,7 @@ import Book from '../models/book'
 // Define the Root Query - this is how data is Read (GET) - cRud
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
-  
+
   // Define the methods for Reading the data stored in the database
   fields: {
     // Returns a book with a given ID
@@ -61,7 +61,7 @@ const RootQuery = new GraphQLObjectType({
 // Define the Mutation Query - this is how data is Created (POST), Removed (DELETE), Updated (PUT) - CrUD
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
-  
+
   // Define the methods for Mutating/Changing elements in the database
   fields: {
     // Add an author to the database
@@ -69,11 +69,11 @@ const Mutation = new GraphQLObjectType({
       type: AuthorType,
       // Data sent in the POST request
       args: {
-        name: { type: GraphQLString},
-        age: { type: GraphQLInt},
+        name: { type: GraphQLString },
+        age: { type: GraphQLInt },
       },
-      resolve(parent, args){
-        let author = new Author ({
+      resolve(parent, args) {
+        let author = new Author({
           name: args.name,
           age: args.age
         });
@@ -81,6 +81,23 @@ const Mutation = new GraphQLObjectType({
         return author.save();
       }
     },
+    // Add a book to the database
+    addBook: {
+      type: BookType,
+      args: {
+        name: { type: GraphQLString },
+        genre: { type: GraphQLString },
+        authorId: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        let book = new Book({
+          name: args.name,
+          genre: args.genre,
+          authorId: args.authorId
+        });
+        return book.save();
+      }
+    }
   }
 });
 
