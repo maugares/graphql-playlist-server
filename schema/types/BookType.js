@@ -20,6 +20,7 @@ export default new GraphQLObjectType({
       type: AuthorType,
       resolve(parent, args) {
         // Look for the author with the same id as the parent's authorId
+        console.log(parent)
         return Author.findById(parent.authorId)
       }
     }
