@@ -21,7 +21,7 @@ export default new GraphQLObjectType({
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args) {
-        return books.filter(book => book.authorId === parent.id)
+        // return books.filter(book => book.authorId === parent.id)
       }
     }
   })

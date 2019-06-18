@@ -19,7 +19,7 @@ export default new GraphQLObjectType({
     author: {
       type: AuthorType,
       resolve(parent, args) {
-        return authors.find(author => author.id === parent.authorId)
+        // return authors.find(author => author.id === parent.authorId)
       }
     }
   })

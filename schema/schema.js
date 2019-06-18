@@ -23,7 +23,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         // Using lodash
-        return _.find(books, { id: args.id });
+        // return _.find(books, { id: args.id });
       }
     },
     author: {
@@ -31,19 +31,19 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         // Using normal array.find()
-        return authors.find(author => author.id === args.id);
+        // return authors.find(author => author.id === args.id);
       }
     },
     books: {
       type: new GraphQLList(BookType),
       resolve() {
-        return books;
+        // return books;
       }
     },
     authors: {
       type: new GraphQLList(AuthorType),
       resolve() {
-        return authors;
+        // return authors;
       }
     }
   }
