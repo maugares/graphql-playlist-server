@@ -22,7 +22,7 @@ export default new GraphQLObjectType({
       type: new GraphQLList(BookType),
       resolve(parent, args) {
         // Return all the books in the database asociated with the given Author
-        return Book.find({ authorId: parents.id })
+        return Book.find({ authorId: parent.id })
       }
     }
   })
