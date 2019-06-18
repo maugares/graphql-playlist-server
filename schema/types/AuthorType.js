@@ -9,7 +9,7 @@ import {
 
 // Import relations
 import BookType from './BookType'
-import { books } from '../dummyData'
+import Book from '../../models/book';
 
 // Define Author Type
 export default new GraphQLObjectType({
@@ -21,7 +21,8 @@ export default new GraphQLObjectType({
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args) {
-        // return books.filter(book => book.authorId === parent.id)
+        // Return all the books in the database asociated with the given Author
+        return Book.find({ authorId: parents.id })
       }
     }
   })
