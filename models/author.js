@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+// Define database schema for Author
 const AuthorSchema = new Schema({
   name: String,
   age: Number,

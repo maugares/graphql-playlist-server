@@ -7,12 +7,13 @@ import {
 } from 'graphql';
 import _ from 'lodash'; // Allows to search in arrays, objects and strings
 
-// Import Types
+// Import graphql Types
 import AuthorType from './types/AuthorType'
 import BookType from './types/BookType'
 
-// Import Dummy Data
-import { authors, books } from './dummyData'
+// Import database models
+import Author from '../models/author'
+import Book from '../models/book'
 
 // Define Root Query
 const RootQuery = new GraphQLObjectType({
