@@ -8,4 +8,4 @@ const BookSchema = new Schema({
   authorId: String,
 });
 
-export default mongoose.model('Book', BookSchema);
+export default mongoose.model('book', BookSchema);
