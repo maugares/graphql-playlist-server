@@ -36,8 +36,8 @@ const RootQuery = new GraphQLObjectType({
       type: AuthorType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        // Using normal array.find()
         // return authors.find(author => author.id === args.id);
+        return Author.findById(args.id);
       }
     },
     // Returns an array with all the books stored in the database
