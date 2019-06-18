@@ -6,8 +6,8 @@ import {
 } from 'graphql';
 
 // Import relations
-import AuthorType from './AuthorType'
-import { authors } from '../dummyData'
+import AuthorType from './AuthorType';
+import Author from '../../models/author';
 
 // Define Book Type
 export default new GraphQLObjectType({
@@ -19,7 +19,8 @@ export default new GraphQLObjectType({
     author: {
       type: AuthorType,
       resolve(parent, args) {
-        // return authors.find(author => author.id === parent.authorId)
+        // Look for the author with the same id as the parent's authorId
+        return Author.findById(parent.authorId)
       }
     }
   })
