@@ -36,7 +36,6 @@ const RootQuery = new GraphQLObjectType({
       type: AuthorType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        // return authors.find(author => author.id === args.id);
         return Author.findById(args.id);
       }
     },
@@ -44,7 +43,7 @@ const RootQuery = new GraphQLObjectType({
     books: {
       type: new GraphQLList(BookType),
       resolve() {
-        // return books;
+        return Book.find({});
       }
     },
     // Returns an array with all the authors stored in the database
