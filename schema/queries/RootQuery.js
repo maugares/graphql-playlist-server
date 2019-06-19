@@ -17,6 +17,7 @@ const RootQuery = new GraphQLObjectType({
 
   // Define the methods for Reading the data stored in the database
   fields: {
+
     // Returns a book with a given ID
     book: {
       type: BookType,
@@ -25,6 +26,7 @@ const RootQuery = new GraphQLObjectType({
         return Book.findById(args.id);
       }
     },
+
     // Returns an author with a given ID
     author: {
       type: AuthorType,
@@ -33,6 +35,7 @@ const RootQuery = new GraphQLObjectType({
         return Author.findById(args.id);
       }
     },
+
     // Returns an array with all the books stored in the database
     books: {
       type: new GraphQLList(BookType),
@@ -40,6 +43,7 @@ const RootQuery = new GraphQLObjectType({
         return Book.find({});
       }
     },
+
     // Returns an array with all the authors stored in the database
     authors: {
       type: new GraphQLList(AuthorType),
@@ -47,7 +51,8 @@ const RootQuery = new GraphQLObjectType({
         // return authors;
         return Author.find({});
       }
-    }
+    },
+
   }
 });
 

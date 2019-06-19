@@ -53,7 +53,8 @@ const Mutation = new GraphQLObjectType({
         });
         return book.save();
       }
-    }
+    },
+
   }
 });
 
