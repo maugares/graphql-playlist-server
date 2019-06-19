@@ -8,11 +8,12 @@ const app = express();
 
 const port = 4000;
 
-mongoose.connect('mongodb+srv://mauro:mauro123@maugares-k7gqj.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
-mongoose.connection.once('open', () => console.log('Connected to mongodb'))
-
 // Allow cross-origin requests
 app.use(cors());
+
+// Connect to mongoDB database
+mongoose.connect('mongodb+srv://mauro:mauro123@maugares-k7gqj.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+mongoose.connection.once('open', () => console.log('Connected to mongodb'))
 
 app.use('/graphql', graphqlHTTP({
   schema,
